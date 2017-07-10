@@ -12,7 +12,7 @@ import helper
 import time
 
 # Load Data
-seq_len = 50
+seq_len = 25
 norm_win = True
 filename = 'sp500.csv'
 X_tr, Y_tr, X_te, Y_te = helper.load_data(filename, seq_len, norm_win)
@@ -38,7 +38,7 @@ model.fit(X_tr,
           validation_split=0.05
           )
 # Predictions
-win_size = 50
+win_size = seq_len
 pred_len = seq_len
 pred = helper.predict_seq_mul(model, X_te, win_size, pred_len)
 helper.plot_mul(pred, Y_te, pred_len)
