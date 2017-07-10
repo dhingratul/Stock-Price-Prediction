@@ -6,15 +6,8 @@ Created on Mon Jul 10 12:45:51 2017
 @author: dhingratul
 """
 
-import time
-import warnings
 import numpy as np
-from numpy import newaxis
-from keras.layers.core import Dense, Activation, Dropout
-from keras.layers.recurrent import LSTM
-from keras.models import Sequential
 import matplotlib.pyplot as plt
-warnings.filterwarnings("ignore")
 
 
 def normalize_windows(win_data):
@@ -43,6 +36,8 @@ def load_data(filename, seq_len, norm_win):
 
     Note: Normalization data using n_i = (p_i / p_0) - 1,
     denormalization using p_i = p_0(n_i + 1)
+
+    Note: Run from timeSeriesPredict.py
     """
     fid = open(filename, 'r').read()
     data = fid.split('\n')
@@ -67,6 +62,13 @@ def load_data(filename, seq_len, norm_win):
 
 
 def predict_seq_mul(model, data, win_size, pred_len):
+    """
+    Predicts multiple sequences
+    Input: keras model, testing data, window size, prediction length
+    Output: Predicted sequence
+
+    Note: Run from timeSeriesPredict.py
+    """
     pred_seq = []
     for i in range(len(data)//pred_len):
         current = data[i * pred_len]
