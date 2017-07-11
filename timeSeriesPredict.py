@@ -10,6 +10,7 @@ from keras.layers.recurrent import LSTM
 from keras.models import Sequential
 import helper
 import time
+from sklearn.metrics import mean_squared_error
 
 # Load Data
 seq_len = 25
@@ -40,6 +41,10 @@ model.fit(X_tr,
 # Predictions
 win_size = seq_len
 pred_len = seq_len
-# pred = helper.predict_seq_mul(model, X_te, win_size, pred_len)
-# helper.plot_mul(pred, Y_te, pred_len)
-pred = helper.predict_pt_pt(model, X_te)
+plot = False
+if plot:
+    pred = helper.predict_seq_mul(model, X_te, win_size, pred_len)
+    helper.plot_mul(pred, Y_te, pred_len)
+else:
+    pred = helper.predict_pt_pt(model, X_te)
+    print("MSE is ", mean_squared_error(Y_te, pred))
