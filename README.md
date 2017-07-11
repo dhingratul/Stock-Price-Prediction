@@ -11,4 +11,4 @@ Run timeSeriesPredict.py
 ## License
 This source code is released under the [MIT License]
 ## Credits
-Modified from [llsourcell](https://github.com/llSourcell/How-to-Predict-Stock-Prices-Easily-Demo) for python 3 as per my requirements
+Adapted from [llsourcell](https://github.com/llSourcell/How-to-Predict-Stock-Prices-Easily-Demo) for python 3 as per my requirements
