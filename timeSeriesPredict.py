@@ -52,7 +52,10 @@ else:
     print("MSE of model ", mse_model)
     # Stupid Model
     y_bar = np.mean(X_te, axis=1)
+    y_bar = np.reshape(y_bar, (y_bar.shape[0]))
     mse_base = mean_squared_error(Y_te, y_bar)
-    print("MSE of Base Model is", mse_base)
+    print("MSE of Base Model", mse_base)
     improv = (mse_model - mse_base)/mse_base
-    print("%ge improvement")
+    print("%ge improvement", improv)
+    corr_model = np.corrcoef(Y_te, pred)
+    corr_base = np.corrcoef(Y_te, y_bar)
