@@ -4,6 +4,9 @@
 Created on Mon Jul 10 13:54:11 2017
 
 @author: dhingratul
+
+Predicts the next day (closing) stock prices for S&P 500 data using LSTM,
+and 1D conv layer
 """
 from keras.layers.core import Dense, Activation, Dropout
 from keras.layers.recurrent import LSTM
