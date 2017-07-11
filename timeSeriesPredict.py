@@ -8,6 +8,8 @@ Created on Mon Jul 10 13:54:11 2017
 from keras.layers.core import Dense, Activation, Dropout
 from keras.layers.recurrent import LSTM
 from keras.models import Sequential
+from keras.layers.convolutional import Conv1D
+from keras.layers.convolutional import MaxPooling1D
 import helper
 import time
 from sklearn.metrics import mean_squared_error
@@ -24,6 +26,8 @@ model.add(LSTM(input_dim=1,
                output_dim=seq_len,
                return_sequences=True))
 model.add(Dropout(0.2))
+model.add(Conv1D(filters=32, kernel_size=3, padding='same', activation='relu'))
+model.add(MaxPooling1D(pool_size=2))
 model.add(LSTM(100,
                return_sequences=False))
 model.add(Dropout(0.2))
@@ -36,7 +40,7 @@ print('Model built in: ', time.time()-timer_start)
 model.fit(X_tr,
           Y_tr,
           batch_size=512,
-          nb_epoch=1,
+          nb_epoch=10,
           validation_split=0.05
           )
 # Predictions
