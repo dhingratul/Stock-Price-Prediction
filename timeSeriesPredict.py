@@ -59,3 +59,4 @@ else:
     print("%ge improvement", improv)
     corr_model = np.corrcoef(Y_te, pred)
     corr_base = np.corrcoef(Y_te, y_bar)
+    print("Correlation of base, vs model\n", corr_base, "\n \n", corr_model)
