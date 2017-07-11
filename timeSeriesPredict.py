@@ -40,5 +40,6 @@ model.fit(X_tr,
 # Predictions
 win_size = seq_len
 pred_len = seq_len
-pred = helper.predict_seq_mul(model, X_te, win_size, pred_len)
-helper.plot_mul(pred, Y_te, pred_len)
+# pred = helper.predict_seq_mul(model, X_te, win_size, pred_len)
+# helper.plot_mul(pred, Y_te, pred_len)
+pred = helper.predict_pt_pt(model, X_te)

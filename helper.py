@@ -81,6 +81,19 @@ def predict_seq_mul(model, data, win_size, pred_len):
     return pred_seq
 
 
+def predict_pt_pt(model, data):
+    """
+    Predicts only one timestep ahead
+    Input: keras model, testing data
+    Output: Predicted sequence
+
+    Note: Run from timeSeriesPredict.py
+    """
+    predicted = model.predict(data)
+    predicted = np.reshape(predicted, (predicted.size, ))
+    return predicted
+
+
 def plot_mul(Y_hat, Y, pred_len):
     """
     PLots the predicted data versus true data
