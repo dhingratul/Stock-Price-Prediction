@@ -11,9 +11,10 @@ from keras.models import Sequential
 import helper
 import time
 from sklearn.metrics import mean_squared_error
+import numpy as np
 
 # Load Data
-seq_len = 25
+seq_len = 50
 norm_win = True
 filename = 'sp500.csv'
 X_tr, Y_tr, X_te, Y_te = helper.load_data(filename, seq_len, norm_win)
@@ -47,4 +48,11 @@ if plot:
     helper.plot_mul(pred, Y_te, pred_len)
 else:
     pred = helper.predict_pt_pt(model, X_te)
-    print("MSE is ", mean_squared_error(Y_te, pred))
+    mse_model = mean_squared_error(Y_te, pred)
+    print("MSE of model ", mse_model)
+    # Stupid Model
+    y_bar = np.mean(X_te, axis=1)
+    mse_base = mean_squared_error(Y_te, y_bar)
+    print("MSE of Base Model is", mse_base)
+    improv = (mse_model - mse_base)/mse_base
+    print("%ge improvement")
