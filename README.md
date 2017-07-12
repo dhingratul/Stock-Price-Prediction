@@ -7,7 +7,7 @@ tensorflow 1.2,
 keras 2.0.5 
 
 ## Usage
-Run timeSeriesPredict.py
+Run timeSeriesPredict.py in src/
 ## License
 This source code is released under the [MIT License]
 ## Credits
