@@ -21,7 +21,7 @@ import numpy as np
 # Load Data
 seq_len = 50
 norm_win = True
-filename = 'sp500.csv'
+filename = '../data/sp500.csv'
 X_tr, Y_tr, X_te, Y_te = helper.load_data(filename, seq_len, norm_win)
 # Model Build
 model = Sequential()
