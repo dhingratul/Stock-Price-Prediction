@@ -56,7 +56,7 @@ if plot:
 else:
     pred = helper.predict_pt_pt(model, X_te)
     mse_model = mean_squared_error(Y_te, pred)
-    print("MSE of model ", mse_model)
+    print("MSE of DL model ", mse_model)
     # Stupid Model
     y_bar = np.mean(X_te, axis=1)
     y_bar = np.reshape(y_bar, (y_bar.shape[0]))
@@ -75,5 +75,5 @@ else:
     corr_model = np.corrcoef(Y_te, pred)
     corr_base = np.corrcoef(Y_te, y_bar)
     corr_t_1 = np.corrcoef(Y_te, y_t_1)
-    print("Correlation of base, vs naive model vs t-1 model \n", corr_base,
+    print("Correlation of y_bar model, vs DL model vs t-1 model \n", corr_base,
           "\n \n", corr_model, "\n \n", corr_t_1)
