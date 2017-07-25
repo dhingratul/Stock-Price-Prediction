@@ -61,7 +61,7 @@ else:
     y_bar = np.mean(X_te, axis=1)
     y_bar = np.reshape(y_bar, (y_bar.shape[0]))
     mse_base = mean_squared_error(Y_te, y_bar)
-    print("MSE of Base Model", mse_base)
+    print("MSE of y_bar Model", mse_base)
     # t-1 Model
     y_t_1 = X_te[:, -1]
     y_t_1 = np.reshape(y_t_1, (y_t_1.shape[0]))
@@ -69,11 +69,11 @@ else:
     print("MSE of t-1 Model", mse_t_1)
     # Comparisons
     improv = (mse_model - mse_base)/mse_base
-    improv_t_1 = (mse_model - mse_t_1)/mse_base
+    improv_t_1 = (mse_model - mse_t_1)/mse_t_1
     print("%ge improvement over naive model", improv)
     print("%ge improvement over t-1 model", improv_t_1)
     corr_model = np.corrcoef(Y_te, pred)
     corr_base = np.corrcoef(Y_te, y_bar)
     corr_t_1 = np.corrcoef(Y_te, y_t_1)
-    print("Correlation of y_bar model, vs DL model vs t-1 model \n", corr_base,
-          "\n \n", corr_model, "\n \n", corr_t_1)
+    print("Correlation of y_bar \n ", corr_base, "\n t-1 model \n", corr_t_1,
+          "\n DL model\n", corr_model)
