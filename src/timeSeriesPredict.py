@@ -43,7 +43,7 @@ print('Model built in: ', time.time()-timer_start)
 model.fit(X_tr,
           Y_tr,
           batch_size=512,
-          nb_epoch=100,
+          nb_epoch=200,
           validation_split=0.05
           )
 # Predictions
